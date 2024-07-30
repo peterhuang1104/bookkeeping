@@ -11,29 +11,61 @@
 
     <main>
         <!-- Your bookkeeping content goes here -->
-        <main>
-            <form>
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date" value="">
+        <form id="bookkeeping-form">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="">
 
-                <label for="store">Store Name:</label>
-                <select id="store" name="store">
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <!-- Add more options as needed -->
-                </select>
+            <label for="store">Store Name:</label>
+            <select id="store" name="store">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <!-- Add more options as needed -->
+            </select>
 
-                <label for="income">Income:</label>
-                <input type="number" id="income" name="income" value="">
+            <label for="income">Income:</label>
+            <input type="number" id="income" name="income" value="">
 
-                <button type="submit">Add Item</button>
-            </form>
-        </main>
+            <button type="submit">Add Item</button>
+        </form>
     </main>
 
     <footer>
         <p>&copy; 2022 Bookkeeping App. All rights reserved.</p>
     </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('bookkeeping-form');
+        const incomeList = document.createElement('ul');
+        document.body.appendChild(incomeList);
+
+        // Load saved data
+        const savedData = JSON.parse(localStorage.getItem('bookkeepingData')) || [];
+        savedData.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `Date: ${item.date}, Store: ${item.store}, Income: ${item.income}`;
+            incomeList.appendChild(li);
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const date = document.getElementById('date').value;
+            const store = document.getElementById('store').value;
+            const income = document.getElementById('income').value;
+
+            const newItem = { date, store, income };
+            savedData.push(newItem);
+            localStorage.setItem('bookkeepingData', JSON.stringify(savedData));
+
+            const li = document.createElement('li');
+            li.textContent = `Date: ${date}, Store: ${store}, Income: ${income}`;
+            incomeList.appendChild(li);
+
+            form.reset();
+        });
+    });
+    </script>
 </body>
 </html>
