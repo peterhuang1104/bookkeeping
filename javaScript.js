@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const incomeList = document.createElement('ul');
     document.body.appendChild(incomeList);
 
+    const savedDataContainer = document.getElementById('saved-data-container');
+
     // Load saved data
     const savedData = JSON.parse(localStorage.getItem('bookkeepingData')) || [];
     savedData.forEach((item) => {
@@ -30,4 +32,17 @@ document.addEventListener('DOMContentLoaded', function() {
         li.textContent = `Date: ${item.date}, Store: ${item.store}, Income: ${item.income}`;
         incomeList.appendChild(li);
     }
+
+    // 顯示儲存的資料
+    function displaySavedData() {
+        savedDataContainer.innerHTML = ''; // 清空容器
+        savedData.forEach(item => {
+            const div = document.createElement('div');
+            div.textContent = `Date: ${item.date}, Store: ${item.store}, Income: ${item.income}`;
+            savedDataContainer.appendChild(div);
+        });
+    }
+
+    // 初始化顯示儲存的資料
+    displaySavedData();
 });
