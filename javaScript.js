@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(incomeList);
 
     const savedDataContainer = document.getElementById('saved-data-container');
+    const clearDataButton = document.getElementById('clear-data');
 
     // Load saved data
     const savedData = JSON.parse(localStorage.getItem('bookkeepingData')) || [];
@@ -25,6 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
         addItemToList(newItem);
 
         form.reset();
+    });
+
+    clearDataButton.addEventListener('click', function() {
+        localStorage.removeItem('bookkeepingData');
+        savedData.length = 0; // 清空陣列
+        incomeList.innerHTML = ''; // 清空顯示的列表
+        displaySavedData(); // 更新顯示的資料
     });
 
     function addItemToList(item) {
