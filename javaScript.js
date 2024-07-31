@@ -28,12 +28,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function addItemToList(item, index) {
         const li = document.createElement('li');
         li.innerHTML = `Date: ${item.date}, Store: ${item.store}, Income: ${item.income} 
+                        <button onclick="editItem(${index})">Edit</button>`;
+        incomeList.appendChild(li);
+    }
+
+ /*   
+     function addItemToList(item, index) {
+        const li = document.createElement('li');
+        li.innerHTML = `Date: ${item.date}, Store: ${item.store}, Income: ${item.income} 
                         <button onclick="editItem(${index})">Edit</button>
                         <button onclick="deleteItem(${index})">Delete</button>`;
         incomeList.appendChild(li);
     }
-
- /*   window.editItem = function(index) {
+ 
+ window.editItem = function(index) {
         const item = savedData[index];
         document.getElementById('store').value = item.store;
         document.getElementById('income').value = item.income;
@@ -55,3 +63,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
