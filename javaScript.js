@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         incomeList.appendChild(li);
     }
 
-    window.editItem = function(index) {
+ /*   window.editItem = function(index) {
         const item = savedData[index];
         document.getElementById('store').value = item.store;
         document.getElementById('income').value = item.income;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('bookkeepingData', JSON.stringify(savedData));
         renderList();
     };
-
+*/
     function renderList() {
         incomeList.innerHTML = '';
         savedData.forEach((item, index) => {
