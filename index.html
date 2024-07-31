@@ -10,22 +10,56 @@
     </header>
 
     <main>
-        <!-- Your bookkeeping content goes here -->
         <form id="bookkeeping-form">
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" value="">
-
             <label for="store">Store Name:</label>
             <select id="store" name="store">
-                <option value="A1">A1</option>
-                <option value="B2">B2</option>
-                <option value="C3">C3</option>
-                <!-- Add more options as needed -->
+                <option value="社中-標">社中-標</option>
+                <option value="社中-中">社中-中</option>
+                <option value="重慶-1">重慶-1</option>
+                <option value="重慶-3">重慶-3</option>
+                <option value="重慶-4">重慶-4</option>
+                <option value="重慶-5">重慶-5</option>
+                <option value="重慶-7">重慶-7</option>
+                <option value="重慶-9">重慶-9</option>
+                <option value="重慶-11">重慶-11</option>
+                <option value="重慶-13">重慶-13</option>
+                <option value="重慶-15">重慶-15</option>
+                <option value="重慶-17">重慶-17</option>
+                <option value="重慶-19">重慶-19</option>
+                <option value="重慶-21">重慶-21</option>
+                <option value="重慶-23">重慶-23</option>
+                <option value="重慶-25">重慶-25</option>
+                <option value="永和-24">永和-24</option>
+                <option value="永和-25">永和-25</option>
+                <option value="三重-1">三重-1</option>
+                <option value="三重-2">三重-2</option>
+                <option value="三重-3">三重-3</option>
+                <option value="三重-4">三重-4</option>
+                <option value="三重-5">三重-5</option>
+                <option value="三重-6">三重-6</option>
+                <option value="三重-7">三重-7</option>
+                <option value="三重-8">三重-8</option>
+                <option value="三重-9">三重-9</option>
+                <option value="三重-10">三重-10</option>
+                <option value="三重-11">三重-11</option>
+                <option value="三重-12">三重-12</option>
+                <option value="三重-13">三重-13</option>
+                <option value="三重-14">三重-14</option>
+                <option value="三重-15">三重-15</option>
+                <option value="三重-16">三重-16</option>
+                <option value="三重-17">三重-17</option>
+                <option value="三重-18">三重-18</option>
+                <option value="三重-19">三重-19</option>
+                <option value="三重-20">三重-20</option>
+                <option value="三重-21">三重-21</option>
+                <option value="三重-22">三重-22</option>
+                <option value="三重-23">三重-23</option>
+                <option value="三重-24">三重-24</option>
+                <option value="三重-25">三重-25</option>
             </select>
 
             <label for="income">Income:</label>
             <input type="number" id="income" name="income" value="">
-
             <button type="submit">Add Item</button>
         </form>
     </main>
@@ -34,38 +68,6 @@
         <p>&copy; 2022 Bookkeeping App. All rights reserved.</p>
     </footer>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('bookkeeping-form');
-        const incomeList = document.createElement('ul');
-        document.body.appendChild(incomeList);
-
-        // Load saved data
-        const savedData = JSON.parse(localStorage.getItem('bookkeepingData')) || [];
-        savedData.forEach(item => {
-            const li = document.createElement('li');
-            li.textContent = `Date: ${item.date}, Store: ${item.store}, Income: ${item.income}`;
-            incomeList.appendChild(li);
-        });
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const date = document.getElementById('date').value;
-            const store = document.getElementById('store').value;
-            const income = document.getElementById('income').value;
-
-            const newItem = { date, store, income };
-            savedData.push(newItem);
-            localStorage.setItem('bookkeepingData', JSON.stringify(savedData));
-
-            const li = document.createElement('li');
-            li.textContent = `Date: ${date}, Store: ${store}, Income: ${income}`;
-            incomeList.appendChild(li);
-
-            form.reset();
-        });
-    });
-    </script>
+    <script src="javaScript.js"></script>
 </body>
 </html>
