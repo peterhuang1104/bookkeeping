@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookkeeping App</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        main {
+            margin: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        #saved-data-container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -63,8 +78,9 @@
             <button type="submit">Add Item</button>
         </form>
 
-                <!-- 新增一個容器來顯示儲存的資料 -->
-                <div id="saved-data-container"></div>
+        <!-- 新增一個容器來顯示儲存的資料 -->
+        <div id="saved-data-container"></div>
+        <button id="clear-data">Clear All Data</button>
     </main>
 
     <footer>
